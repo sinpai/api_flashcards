@@ -2,7 +2,7 @@ require_relative '../application_controller.rb'
 
 module ApiFlashcards
   module Api
-    class ApiController < ApplicationController
+    class ApiController < ApiFlashcards::ApplicationController
       before_action :set_default_format
 
       private

@@ -1,7 +1,7 @@
 require_relative '../api_controller.rb'
 
 module ApiFlashcards
-  class Api::V1::CardsController < Api::ApiController
+  class Api::V1::CardsController < ApiFlashcards::Api::ApiController
 
     respond_to :json
 
