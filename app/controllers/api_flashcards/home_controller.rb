@@ -1,7 +1,5 @@
-require_relative '../application_controller.rb'
-
 module ApiFlashcards
-  class HomeController < ApplicationController
+  class HomeController < ApiFlashcards::ApplicationController
     def index
     end
   end
