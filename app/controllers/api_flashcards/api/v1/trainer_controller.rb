@@ -4,6 +4,7 @@ module ApiFlashcards
 
       respond_to :json
 
+      api :GET, '/v1/trainer', 'Get card to review'
       def index
         if params[:id]
           @card = current_user.cards.find(params[:id])
@@ -18,6 +19,9 @@ module ApiFlashcards
         render json: @card, status: 200
       end
 
+      api :PUT, '/v1/review_card', 'Endpoint to check card translation'
+      param :user_translation, String, desc: 'User\'s answer'
+      param :card_id, Integer
       def review_card
         @card = current_user.cards.find(params[:card_id])
         @oncheck = SuperMemo.new(@card, trainer_params[:user_translation])

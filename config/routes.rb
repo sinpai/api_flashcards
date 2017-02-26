@@ -1,4 +1,5 @@
 ApiFlashcards::Engine.routes.draw do
+  apipie
   root to: 'home#index'
 
   scope module: 'api', defaults: { format: 'json' } do

@@ -3,14 +3,20 @@ module ApiFlashcards
     class CardsController < ApiFlashcards::ApplicationController
       respond_to :json
 
+      api :GET, '/v1/cards', 'All cards of user'
       def index
-        respond_with Card.all
+        respond_with current_user.cards
       end
 
+      api :GET, '/v1/cards/:id', 'Separate card'
       def show
         respond_with Card.find(params[:id])
       end
 
+      api :POST, '/v1/cards/', 'New card'
+      param :original_text, String
+      param :translated_text, String
+      param :block_id, Integer
       def create
         card = current_user.cards.build(card_params)
         if card.save
