@@ -1,7 +1,5 @@
-require_dependency "api_flashcards/application_controller"
-
 module ApiFlashcards
-  class HomeController < ApplicationController
+  class HomeController < ApiFlashcards::ApplicationController
     def index
     end
   end
