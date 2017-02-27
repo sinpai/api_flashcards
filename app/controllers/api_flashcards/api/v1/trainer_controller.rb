@@ -8,11 +8,9 @@ module ApiFlashcards
         if params[:id]
           @card = current_user.cards.find(params[:id])
         else
-          if current_user.current_block
-            @card = current_user.current_block.cards.pending.first
-          else
-            @card = current_user.cards.pending.first
-          end
+          @card = (current_user.current_block ?
+                     current_user.current_block.cards.pending.first :
+                     current_user.cards.pending.first)
         end
 
         render json: @card, status: 200
