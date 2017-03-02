@@ -7,7 +7,6 @@ module ApiFlashcards
         respond_with current_user.cards
       end
 
-      api :GET, '/v1/cards/:id', 'Separate card'
       def show
         respond_with Card.find(params[:id])
       end
